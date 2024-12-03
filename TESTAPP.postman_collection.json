@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "446f99f0-7f36-48e7-9e3d-bbe36e8105e7",
+		"name": "TESTAPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39625146"
+	},
+	"item": [
+		{
+			"name": "1 Create a product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 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",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Test product\",\r\n    \"PLU\": \"PLUTEST\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2 Products table has been accessed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/products?PLU=GB1250&name=LEGO Green Baseplate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"products"
+					],
+					"query": [
+						{
+							"key": "PLU",
+							"value": "GB1250"
+						},
+						{
+							"key": "name",
+							"value": "LEGO Green Baseplate"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3 Create stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"product_id\": 3,\r\n    \"store_id\": 1,\r\n    \"quantity_all\": 0,\r\n    \"quantity_reserved\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/stock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4 Increase stock",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/stock/increase/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"stock",
+						"increase",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5 Decrease stock",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/v1/stock/decrease/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"stock",
+						"decrease",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6 Get stock",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/v1/stock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"v1",
+						"stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET stories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/v1/stories?end_date=2024-12-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"stories"
+					],
+					"query": [
+						{
+							"key": "end_date",
+							"value": "2024-12-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH users",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/users/resolve-issues",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"users",
+						"resolve-issues"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
